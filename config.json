@@ -1,0 +1,30 @@
+{
+    "connection": {
+        "username": "tbleuse",
+        "passwordVar": "MYPASSWORD",
+        "authority": "dev0-sql0.kdata.fr:3306",
+        "databaseName": "vpfr"
+    },
+    "tablename": "contents",
+    "descriptionVar": "description",
+    "limit": 0,
+    "resultnb": 5,
+    "fuzzywuzzy": {
+        "useIt": false,
+        "minscore": 1,
+        "maxscore": 99
+    },
+    "rareword": {
+        "useIt": false,
+        "minlength": 0,
+        "percent": 0.1
+    },
+    "dictionnary": {
+        "useIt": false,
+        "databasename": "vpfr_dictionnary",
+        "tablename": "dico"
+    },
+    "fuzzydico": {
+        "useIt": true
+    }
+}
