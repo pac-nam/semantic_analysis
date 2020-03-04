@@ -13,7 +13,6 @@ GOARCH=$(shell $(GOCMD) env GOARCH)
 
 #SOFTWARE SETTINGS
 COMPILE_DATE=$(shell date +"%d/%m/%Y - %H:%M")
-LDFLAGS= -ldflags '-X "kdatapack/bin.VERSION_NUMBER=$(VERSION)" -X "kdatapack/bin.COMPILE_DATE=$(COMPILE_DATE)" -X "kdatapack/bin.USERNAME=$(USERNAME)"'
 BINARY_NAME=$(BINARY)-$(VERSION)
 
 #DEBIAN SETTINGS
@@ -45,15 +44,6 @@ deps:
 	$(GOGET) $(BUILD_TAGS)
 	@echo ""
 
-debian: makedir control build
-	@echo "> Packaging for upload to debian repository..."
-	cp $(BINARY_NAME)_standalone $(DEB_BIN)/$(BINARY_NAME)
-	dpkg-deb --build $(BINARY_NAME)
-	@echo "======="
-	@echo "> Uploading to debian repository..."
-	scp $(BINARY_NAME).deb bucket@apt.kdata.fr:./incoming/
-	@echo "All done."
-
 makedir:
 	mkdir -p $(DEB_BIN)
 	mkdir -p $(DEB_OUTPUT)
@@ -71,4 +61,4 @@ control:
 
 re: clean all
 
-.PHONY: all build clean deps debian makedir control re
+.PHONY: all build clean deps makedir control re
