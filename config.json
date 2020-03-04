@@ -2,8 +2,8 @@
     "connection": {
         "username": "tbleuse",
         "passwordVar": "MYPASSWORD",
-        "authority": "dev0-sql0.kdata.fr:3306",
-        "databaseName": "vpfr"
+        "authority": "server.fr:<port>",
+        "databaseName": ""
     },
     "tablename": "contents",
     "descriptionVar": "description",
@@ -21,7 +21,7 @@
     },
     "dictionnary": {
         "useIt": false,
-        "databasename": "vpfr_dictionnary",
+        "databasename": "dictionnary",
         "tablename": "dico"
     },
     "fuzzydico": {
